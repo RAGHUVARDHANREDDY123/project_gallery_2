@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <input placeholder="Enter A" id="input_a" type="number" />
+    <input placeholder="Enter B" id="input_b" type="number" />
+    <button onclick="generate_random_value();">Generate Random Value</button>
+    <div id="output_div"></div>
+    <script>
+        function generate_random_value() {
+            let min_val = parseInt(document.getElementById("input_a").value) || 0;
+            let max_val = parseInt(document.getElementById("input_b").value) || 1;
+            let valid_range = min_val < max_val;
+            let random_value = Math.floor(min_val + Math.random() * (max_val - min_val)) * valid_range + "Invalid input".repeat(!valid_range);
+            document.getElementById("output_div").innerHTML = random_value;
+        }
+    </script>
+</body>
+</html>

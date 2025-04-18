@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Make sure the body takes the full height and centers the content */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* Style for the letters */
+        #div1, #div2, #div3, #div4, #div5, #div6 {
+            width: 120px;
+            height: 100px;
+            display: inline-block;
+            text-align: center;
+            line-height: 100px; /* Vertically center text */
+            font-size: 50px;
+            transition: all 0.3s ease; /* Smooth transition for scaling and background */
+        }
+
+        /* Apply specific colors to each letter */
+        #div1 { color: rgb(255, 157, 0); }
+        #div2 { color: blue; }
+        #div3 { color: red; }
+        #div4 { color: violet; }
+        #div5 { color: red; }
+        #div6 { color: green; }
+
+        /* Hover effect to highlight and scale */
+        .box:hover {
+            cursor: pointer;
+            scale: 1.4;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="box">G</div>
+    <div id="div2" class="box">O</div>
+    <div id="div3" class="box">O</div>
+    <div id="div4" class="box">G</div>
+    <div id="div5" class="box">L</div>
+    <div id="div6" class="box">E</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <input placeholder="Enter Min Range" id="input_a" type="number" />
+    <input placeholder="Enter Max Range" id="input_b" type="number" />
+    <button onclick="generate_random_value();">Generate Random Number</button>
+    <div id="output_div" style="font-size: 24px; font-weight: bold;">Random number is:</div>
+    <script>
+        function generate_random_value() {
+            let min_val = parseInt(document.getElementById("input_a").value) || 0;
+            let max_val = parseInt(document.getElementById("input_b").value) || 1;
+            let colors = ["red", "green", "blue", "purple", "orange"];
+            let valid_range = min_val < max_val;
+            let random_value = Math.floor(min_val + Math.random() * (max_val - min_val + 1)) * valid_range + "Invalid input".repeat(!valid_range);
+            let random_color = colors[Math.floor(Math.random() * colors.length)];
+            document.getElementById("output_div").innerHTML = `Random number is: ${random_value}`;
+            document.getElementById("output_div").style.color = random_color;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vanishing Content</title>
+</head>
+<body>
+    <div id="content_div">
+        <h1>Welcome to the Class</h1>
+    </div>
+
+    <script>
+        function hide_content() {
+            document.getElementById("content_div").innerHTML = "";
+        }
+
+        setTimeout(hide_content, 3000); // Content disappears after 5 seconds
+    </script>
+</body>
+</html>

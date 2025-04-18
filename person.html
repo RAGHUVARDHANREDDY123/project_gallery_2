@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        input, button {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Student Information System</h2>
+    <input id="name" placeholder="Enter Name">
+    <input id="id" placeholder="Enter ID">
+    <input id="age" placeholder="Enter Age">
+    <input id="country" placeholder="Enter Country">
+
+    <button onclick="insertStudent()">Insert Student</button>
+    <button onclick="clearInput()">Clear Input</button>
+    <button onclick="showStudents()">Show All Students</button>
+    <button onclick="clearDisplay()">Clear Display</button>
+
+    <p id="info"></p>
+
+    <table id="studentTable">
+        <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Age</th>
+            <th>Country</th>
+        </tr>
+    </table>
+</div>
+
+<script>
+    let students = [];
+
+    function insertStudent() {
+        let name = document.getElementById("name").value;
+        let id = document.getElementById("id").value;
+        let age = document.getElementById("age").value;
+        let country = document.getElementById("country").value;
+
+        if (name && id && age && country) {
+            students.push({ name, id, age, country });
+            document.getElementById("info").innerText = `Added: ${name}, ${age} from ${country} (ID: ${id})`;
+            clearInput();
+        }
+    }
+
+    function clearInput() {
+        document.getElementById("name").value = "";
+        document.getElementById("id").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("country").value = "";
+    }
+
+    function showStudents() {
+        let table = document.getElementById("studentTable");
+        table.innerHTML = `<tr><th>Name</th><th>ID</th><th>Age</th><th>Country</th></tr>`;
+        students.forEach(s => {
+            let row = table.insertRow();
+            row.insertCell(0).innerText = s.name;
+            row.insertCell(1).innerText = s.id;
+            row.insertCell(2).innerText = s.age;
+            row.insertCell(3).innerText = s.country;
+        });
+    }
+
+    function clearDisplay() {
+        document.getElementById("studentTable").innerHTML = `<tr><th>Name</th><th>ID</th><th>Age</th><th>Country</th></tr>`;
+    }
+</script>
+
+</body>
+</html>
